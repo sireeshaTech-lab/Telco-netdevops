@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telco-nf
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: telco-nf
+  template:
+    metadata:
+      labels:
+        app: telco-nf
+    spec:
+      containers:
+      - name: telco-nf
+        image: telco-nf:v1
+        imagePullPolicy: Never   # 🔴 VERY IMPORTANT
+        ports:
+
+        - containerPort: 5000
+
