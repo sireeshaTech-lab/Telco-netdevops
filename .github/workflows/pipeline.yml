@@ -17,6 +17,9 @@ jobs:
       with:
         python-version: '3.9'
 
+    - name: Set PYTHONPATH
+      run: echo "PYTHONPATH=$GITHUB_WORKSPACE" >> $GITHUB_ENV
+
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
@@ -27,3 +30,4 @@ jobs:
 
     - name: Build Docker image
       run: docker build -t telco-nf:ci .
+
